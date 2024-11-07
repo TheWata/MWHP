@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2>Formulário de Contato</h2>
+    <form id="contactForm">
+        <label for="name">Nome:</label>
+        <input type="text" id="name" name="name" required><br><br>
+
+        <label for="email">E-mail:</label>
+        <input type="email" id="email" name="email" required><br><br>
+
+        <label for="doubt">Dúvida:</label><br>
+        <textarea id="doubt" name="doubt" rows="4" required></textarea><br><br>
+
+        <button type="submit">Enviar</button>
+    </form>
+    <div id="error-message" style="color: red;"></div>
+
+    <script>
+        document.getElementById("contactForm").addEventListener("submit", function (event) {
+            event.preventDefault(); // Impede o envio padrão do formulário
+
+            // Validação simples
+            var name = document.getElementById("name").value;
+            var email = document.getElementById("email").value;
+            var doubt = document.getElementById("doubt").value;
+            var errorMessage = document.getElementById("error-message");
+            errorMessage.textContent = "";
+
+            if (!name || !email || !doubt) {
+                errorMessage.textContent = "Por favor, preencha todos os campos.";
+            } else {
+                alert("Formulário enviado com sucesso!");
+                // Aqui você pode adicionar a lógica para enviar os dados
+            }
+        });
+    </script>
+</body>
+
+</html>
+
+</html>
